@@ -33,7 +33,7 @@ namespace TermProjectFacultyC.DAO
                 reader.Close();
 
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                
             }

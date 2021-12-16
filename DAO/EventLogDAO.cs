@@ -80,18 +80,16 @@ namespace TermProjectFacultyC.DAO
             try
             {
                 SqlCommand cmd = new SqlCommand("UPDATE userrole SET " +
-                    " eventdate = @eventdate " +
-                    " eventplace = @eventplace " +
-                    " responsibleprofessor = @responsibleprofessor " +
-                    " eventdescr = @eventdescr " +
-                    
-                    " password = @Password" +
+                    " eventdate = @Eventdate " +
+                    " eventplace = @Eventplace " +
+                    " responsibleprofessor = @Responsibleprofessor " +
+                    " eventdescr = @Eventdescr " +
                     " WHERE id = @ID ", Con);
 
-                cmd.Parameters.Add(new SqlParameter("@eventdate", eventlogObj.eventdate));
-                cmd.Parameters.Add(new SqlParameter("@eventplace", eventlogObj.eventplace));
-                cmd.Parameters.Add(new SqlParameter("@responsibleprofessor", eventlogObj.responsibleprofessor));
-                cmd.Parameters.Add(new SqlParameter("@eventdescr", eventlogObj.eventdescr));
+                cmd.Parameters.Add(new SqlParameter("@Eventdate", eventlogObj.eventdate));
+                cmd.Parameters.Add(new SqlParameter("@Eventplace", eventlogObj.eventplace));
+                cmd.Parameters.Add(new SqlParameter("@Responsibleprofessor", eventlogObj.responsibleprofessor));
+                cmd.Parameters.Add(new SqlParameter("@Eventdescr", eventlogObj.eventdescr));
                 cmd.Parameters.Add(new SqlParameter("@ID", id));
                 cmd.ExecuteNonQuery();
             }
@@ -113,12 +111,12 @@ namespace TermProjectFacultyC.DAO
             try
             {
                 SqlCommand cmd = new SqlCommand("INSERT INTO " +
-                    "eventlog(eventdate, eventplace, responsibleprofessor, password) " +
-                    "VALUES (@eventdate, @eventplace, @responsibleprofessor, @Password )", Con);
-                cmd.Parameters.Add(new SqlParameter("@eventdate", eventlogObj.eventdate));
-                cmd.Parameters.Add(new SqlParameter("@eventplace", eventlogObj.eventplace));
-                cmd.Parameters.Add(new SqlParameter("@responsibleprofessor", eventlogObj.responsibleprofessor));
-                cmd.Parameters.Add(new SqlParameter("@eventdescr", eventlogObj.eventdescr));
+                    "eventlog(eventdate, eventplace, responsibleprofessor, eventdescr) " +
+                    "VALUES (@Eventdate, @Eventplace, @Responsibleprofessor, @Eventdescr )", Con);
+                cmd.Parameters.Add(new SqlParameter("@Eventdate", eventlogObj.eventdate));
+                cmd.Parameters.Add(new SqlParameter("@Eventplace", eventlogObj.eventplace));
+                cmd.Parameters.Add(new SqlParameter("@Responsibleprofessor", eventlogObj.responsibleprofessor));
+                cmd.Parameters.Add(new SqlParameter("@Eventdescr", eventlogObj.eventdescr));
                 cmd.ExecuteNonQuery();
             }
             catch (Exception)
@@ -138,7 +136,7 @@ namespace TermProjectFacultyC.DAO
             bool result = true;
             try
             {
-                SqlCommand cmd = new SqlCommand("DELETE FROM eventlog WHERE Id=@ID", Con);
+                SqlCommand cmd = new SqlCommand("DELETE FROM eventlog WHERE id=@ID", Con);
                 cmd.Parameters.Add(new SqlParameter("@ID", id));
                 cmd.ExecuteNonQuery();
             }
