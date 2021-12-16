@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="246c8f36a861428980c8016b9e55ddc6" Name="Diagram1">
+        <EntityTypeShape EntityType="facultyModel.eventlog" Width="1.5" PointX="3" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="facultyModel.gek" Width="1.5" PointX="0.75" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="facultyModel.gekmembers" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="facultyModel.gwresult" Width="1.5" PointX="5.25" PointY="1.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="facultyModel.purchaselist" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="facultyModel.sciadvisor" Width="1.5" PointX="0.75" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="facultyModel.userinfo" Width="1.5" PointX="8" PointY="6" IsExpanded="true" />
+        <EntityTypeShape EntityType="facultyModel.userrole" Width="1.5" PointX="5.75" PointY="6.375" IsExpanded="true" />
+        <AssociationConnector Association="facultyModel.gwresult_eventlog" ManuallyRouted="false" />
+        <AssociationConnector Association="facultyModel.gekmembers_gek2" ManuallyRouted="false" />
+        <AssociationConnector Association="facultyModel.gekmembers_gek3" ManuallyRouted="false" />
+        <AssociationConnector Association="facultyModel.gekmembers_gek4" ManuallyRouted="false" />
+        <AssociationConnector Association="facultyModel.gekmembers_gekpres" ManuallyRouted="false" />
+        <AssociationConnector Association="facultyModel.gekmembers_geksec" ManuallyRouted="false" />
+        <AssociationConnector Association="facultyModel.gekmembers_sciadv" ManuallyRouted="false" />
+        <AssociationConnector Association="facultyModel.gwresult_gekmembers" ManuallyRouted="false" />
+        <AssociationConnector Association="facultyModel.userinfo_userrole" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

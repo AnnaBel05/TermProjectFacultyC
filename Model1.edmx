@@ -1,0 +1,650 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="facultyModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="eventlog">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="eventdate" Type="datetime" Nullable="false" />
+          <Property Name="eventplace" Type="int" Nullable="false" />
+          <Property Name="responsibleprofessor" Type="int" Nullable="false" />
+          <Property Name="eventdescr" Type="varchar" MaxLength="200" Nullable="false" />
+        </EntityType>
+        <EntityType Name="gek">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="lastname" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="firstname" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="patronymic" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="placeofwork" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="position" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="gekmembers">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="secretary" Type="int" Nullable="false" />
+          <Property Name="president" Type="int" Nullable="false" />
+          <Property Name="membersciadv" Type="int" Nullable="false" />
+          <Property Name="member2" Type="int" Nullable="false" />
+          <Property Name="member3" Type="int" Nullable="false" />
+          <Property Name="member4" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="gwresult">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="eventid" Type="int" Nullable="false" />
+          <Property Name="gekid" Type="int" Nullable="false" />
+          <Property Name="gw" Type="int" Nullable="false" />
+          <Property Name="mark" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="purchaselist">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="purchasename" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="purchasedescription" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="sender" Type="int" Nullable="false" />
+          <Property Name="quantity" Type="int" Nullable="false" />
+          <Property Name="price1pc" Type="int" Nullable="false" />
+          <Property Name="overallsum" Type="int" Nullable="false" />
+          <Property Name="ifapproved" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sciadvisor">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="professor" Type="int" Nullable="false" />
+          <Property Name="hoursGW" Type="int" Nullable="false" />
+          <Property Name="hoursperGW" Type="int" Nullable="false" />
+          <Property Name="takenGWquantity" Type="int" Nullable="false" />
+          <Property Name="freeGWquantity" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="userinfo">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="lastname" Type="varchar" MaxLength="50" />
+          <Property Name="username" Type="varchar" MaxLength="50" />
+          <Property Name="patronymic" Type="varchar" MaxLength="50" />
+          <Property Name="email" Type="varchar" MaxLength="50" />
+          <Property Name="password" Type="varchar" MaxLength="50" />
+          <Property Name="userroleid" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="userrole">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="rolename" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <Association Name="gekmembers_gek2">
+          <End Role="gek" Type="Self.gek" Multiplicity="1" />
+          <End Role="gekmembers" Type="Self.gekmembers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="gek">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="gekmembers">
+              <PropertyRef Name="member2" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="gekmembers_gek3">
+          <End Role="gek" Type="Self.gek" Multiplicity="1" />
+          <End Role="gekmembers" Type="Self.gekmembers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="gek">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="gekmembers">
+              <PropertyRef Name="member3" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="gekmembers_gek4">
+          <End Role="gek" Type="Self.gek" Multiplicity="1" />
+          <End Role="gekmembers" Type="Self.gekmembers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="gek">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="gekmembers">
+              <PropertyRef Name="member4" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="gekmembers_gekpres">
+          <End Role="gek" Type="Self.gek" Multiplicity="1" />
+          <End Role="gekmembers" Type="Self.gekmembers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="gek">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="gekmembers">
+              <PropertyRef Name="president" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="gekmembers_geksec">
+          <End Role="gek" Type="Self.gek" Multiplicity="1" />
+          <End Role="gekmembers" Type="Self.gekmembers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="gek">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="gekmembers">
+              <PropertyRef Name="secretary" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="gekmembers_sciadv">
+          <End Role="sciadvisor" Type="Self.sciadvisor" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="gekmembers" Type="Self.gekmembers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="sciadvisor">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="gekmembers">
+              <PropertyRef Name="membersciadv" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="gwresult_eventlog">
+          <End Role="eventlog" Type="Self.eventlog" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="gwresult" Type="Self.gwresult" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="eventlog">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="gwresult">
+              <PropertyRef Name="eventid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="gwresult_gekmembers">
+          <End Role="gekmembers" Type="Self.gekmembers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="gwresult" Type="Self.gwresult" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="gekmembers">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="gwresult">
+              <PropertyRef Name="gekid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="userinfo_userrole">
+          <End Role="userrole" Type="Self.userrole" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="userinfo" Type="Self.userinfo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="userrole">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="userinfo">
+              <PropertyRef Name="userroleid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="facultyModelStoreContainer">
+          <EntitySet Name="eventlog" EntityType="Self.eventlog" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="gek" EntityType="Self.gek" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="gekmembers" EntityType="Self.gekmembers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="gwresult" EntityType="Self.gwresult" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="purchaselist" EntityType="Self.purchaselist" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sciadvisor" EntityType="Self.sciadvisor" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="userinfo" EntityType="Self.userinfo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="userrole" EntityType="Self.userrole" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="gekmembers_gek2" Association="Self.gekmembers_gek2">
+            <End Role="gek" EntitySet="gek" />
+            <End Role="gekmembers" EntitySet="gekmembers" />
+          </AssociationSet>
+          <AssociationSet Name="gekmembers_gek3" Association="Self.gekmembers_gek3">
+            <End Role="gek" EntitySet="gek" />
+            <End Role="gekmembers" EntitySet="gekmembers" />
+          </AssociationSet>
+          <AssociationSet Name="gekmembers_gek4" Association="Self.gekmembers_gek4">
+            <End Role="gek" EntitySet="gek" />
+            <End Role="gekmembers" EntitySet="gekmembers" />
+          </AssociationSet>
+          <AssociationSet Name="gekmembers_gekpres" Association="Self.gekmembers_gekpres">
+            <End Role="gek" EntitySet="gek" />
+            <End Role="gekmembers" EntitySet="gekmembers" />
+          </AssociationSet>
+          <AssociationSet Name="gekmembers_geksec" Association="Self.gekmembers_geksec">
+            <End Role="gek" EntitySet="gek" />
+            <End Role="gekmembers" EntitySet="gekmembers" />
+          </AssociationSet>
+          <AssociationSet Name="gekmembers_sciadv" Association="Self.gekmembers_sciadv">
+            <End Role="sciadvisor" EntitySet="sciadvisor" />
+            <End Role="gekmembers" EntitySet="gekmembers" />
+          </AssociationSet>
+          <AssociationSet Name="gwresult_eventlog" Association="Self.gwresult_eventlog">
+            <End Role="eventlog" EntitySet="eventlog" />
+            <End Role="gwresult" EntitySet="gwresult" />
+          </AssociationSet>
+          <AssociationSet Name="gwresult_gekmembers" Association="Self.gwresult_gekmembers">
+            <End Role="gekmembers" EntitySet="gekmembers" />
+            <End Role="gwresult" EntitySet="gwresult" />
+          </AssociationSet>
+          <AssociationSet Name="userinfo_userrole" Association="Self.userinfo_userrole">
+            <End Role="userrole" EntitySet="userrole" />
+            <End Role="userinfo" EntitySet="userinfo" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="facultyModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="eventlog">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="eventdate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="eventplace" Type="Int32" Nullable="false" />
+          <Property Name="responsibleprofessor" Type="Int32" Nullable="false" />
+          <Property Name="eventdescr" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="gwresult" Relationship="Self.gwresult_eventlog" FromRole="eventlog" ToRole="gwresult" />
+        </EntityType>
+        <EntityType Name="gek">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="lastname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="firstname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="patronymic" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="placeofwork" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="position" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="gekmembers" Relationship="Self.gekmembers_gek2" FromRole="gek" ToRole="gekmembers" />
+          <NavigationProperty Name="gekmembers1" Relationship="Self.gekmembers_gek3" FromRole="gek" ToRole="gekmembers" />
+          <NavigationProperty Name="gekmembers2" Relationship="Self.gekmembers_gek4" FromRole="gek" ToRole="gekmembers" />
+          <NavigationProperty Name="gekmembers3" Relationship="Self.gekmembers_gekpres" FromRole="gek" ToRole="gekmembers" />
+          <NavigationProperty Name="gekmembers4" Relationship="Self.gekmembers_geksec" FromRole="gek" ToRole="gekmembers" />
+        </EntityType>
+        <EntityType Name="gekmembers">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="secretary" Type="Int32" Nullable="false" />
+          <Property Name="president" Type="Int32" Nullable="false" />
+          <Property Name="membersciadv" Type="Int32" Nullable="false" />
+          <Property Name="member2" Type="Int32" Nullable="false" />
+          <Property Name="member3" Type="Int32" Nullable="false" />
+          <Property Name="member4" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="gek" Relationship="Self.gekmembers_gek2" FromRole="gekmembers" ToRole="gek" />
+          <NavigationProperty Name="gek1" Relationship="Self.gekmembers_gek3" FromRole="gekmembers" ToRole="gek" />
+          <NavigationProperty Name="gek2" Relationship="Self.gekmembers_gek4" FromRole="gekmembers" ToRole="gek" />
+          <NavigationProperty Name="gek3" Relationship="Self.gekmembers_gekpres" FromRole="gekmembers" ToRole="gek" />
+          <NavigationProperty Name="gek4" Relationship="Self.gekmembers_geksec" FromRole="gekmembers" ToRole="gek" />
+          <NavigationProperty Name="sciadvisor" Relationship="Self.gekmembers_sciadv" FromRole="gekmembers" ToRole="sciadvisor" />
+          <NavigationProperty Name="gwresult" Relationship="Self.gwresult_gekmembers" FromRole="gekmembers" ToRole="gwresult" />
+        </EntityType>
+        <EntityType Name="gwresult">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="eventid" Type="Int32" Nullable="false" />
+          <Property Name="gekid" Type="Int32" Nullable="false" />
+          <Property Name="gw" Type="Int32" Nullable="false" />
+          <Property Name="mark" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="eventlog" Relationship="Self.gwresult_eventlog" FromRole="gwresult" ToRole="eventlog" />
+          <NavigationProperty Name="gekmembers" Relationship="Self.gwresult_gekmembers" FromRole="gwresult" ToRole="gekmembers" />
+        </EntityType>
+        <EntityType Name="purchaselist">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="purchasename" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="purchasedescription" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="sender" Type="Int32" Nullable="false" />
+          <Property Name="quantity" Type="Int32" Nullable="false" />
+          <Property Name="price1pc" Type="Int32" Nullable="false" />
+          <Property Name="overallsum" Type="Int32" Nullable="false" />
+          <Property Name="ifapproved" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sciadvisor">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="professor" Type="Int32" Nullable="false" />
+          <Property Name="hoursGW" Type="Int32" Nullable="false" />
+          <Property Name="hoursperGW" Type="Int32" Nullable="false" />
+          <Property Name="takenGWquantity" Type="Int32" Nullable="false" />
+          <Property Name="freeGWquantity" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="gekmembers" Relationship="Self.gekmembers_sciadv" FromRole="sciadvisor" ToRole="gekmembers" />
+        </EntityType>
+        <EntityType Name="userinfo">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="lastname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="username" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="patronymic" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="userroleid" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="userrole" Relationship="Self.userinfo_userrole" FromRole="userinfo" ToRole="userrole" />
+        </EntityType>
+        <EntityType Name="userrole">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="rolename" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="userinfo" Relationship="Self.userinfo_userrole" FromRole="userrole" ToRole="userinfo" />
+        </EntityType>
+        <Association Name="gwresult_eventlog">
+          <End Role="eventlog" Type="Self.eventlog" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="gwresult" Type="Self.gwresult" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="eventlog">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="gwresult">
+              <PropertyRef Name="eventid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="gekmembers_gek2">
+          <End Role="gek" Type="Self.gek" Multiplicity="1" />
+          <End Role="gekmembers" Type="Self.gekmembers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="gek">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="gekmembers">
+              <PropertyRef Name="member2" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="gekmembers_gek3">
+          <End Role="gek" Type="Self.gek" Multiplicity="1" />
+          <End Role="gekmembers" Type="Self.gekmembers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="gek">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="gekmembers">
+              <PropertyRef Name="member3" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="gekmembers_gek4">
+          <End Role="gek" Type="Self.gek" Multiplicity="1" />
+          <End Role="gekmembers" Type="Self.gekmembers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="gek">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="gekmembers">
+              <PropertyRef Name="member4" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="gekmembers_gekpres">
+          <End Role="gek" Type="Self.gek" Multiplicity="1" />
+          <End Role="gekmembers" Type="Self.gekmembers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="gek">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="gekmembers">
+              <PropertyRef Name="president" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="gekmembers_geksec">
+          <End Role="gek" Type="Self.gek" Multiplicity="1" />
+          <End Role="gekmembers" Type="Self.gekmembers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="gek">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="gekmembers">
+              <PropertyRef Name="secretary" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="gekmembers_sciadv">
+          <End Role="sciadvisor" Type="Self.sciadvisor" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="gekmembers" Type="Self.gekmembers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="sciadvisor">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="gekmembers">
+              <PropertyRef Name="membersciadv" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="gwresult_gekmembers">
+          <End Role="gekmembers" Type="Self.gekmembers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="gwresult" Type="Self.gwresult" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="gekmembers">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="gwresult">
+              <PropertyRef Name="gekid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="userinfo_userrole">
+          <End Role="userrole" Type="Self.userrole" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="userinfo" Type="Self.userinfo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="userrole">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="userinfo">
+              <PropertyRef Name="userroleid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="facultyEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="eventlog" EntityType="Self.eventlog" />
+          <EntitySet Name="gek" EntityType="Self.gek" />
+          <EntitySet Name="gekmembers" EntityType="Self.gekmembers" />
+          <EntitySet Name="gwresult" EntityType="Self.gwresult" />
+          <EntitySet Name="purchaselist" EntityType="Self.purchaselist" />
+          <EntitySet Name="sciadvisor" EntityType="Self.sciadvisor" />
+          <EntitySet Name="userinfo" EntityType="Self.userinfo" />
+          <EntitySet Name="userrole" EntityType="Self.userrole" />
+          <AssociationSet Name="gwresult_eventlog" Association="Self.gwresult_eventlog">
+            <End Role="eventlog" EntitySet="eventlog" />
+            <End Role="gwresult" EntitySet="gwresult" />
+          </AssociationSet>
+          <AssociationSet Name="gekmembers_gek2" Association="Self.gekmembers_gek2">
+            <End Role="gek" EntitySet="gek" />
+            <End Role="gekmembers" EntitySet="gekmembers" />
+          </AssociationSet>
+          <AssociationSet Name="gekmembers_gek3" Association="Self.gekmembers_gek3">
+            <End Role="gek" EntitySet="gek" />
+            <End Role="gekmembers" EntitySet="gekmembers" />
+          </AssociationSet>
+          <AssociationSet Name="gekmembers_gek4" Association="Self.gekmembers_gek4">
+            <End Role="gek" EntitySet="gek" />
+            <End Role="gekmembers" EntitySet="gekmembers" />
+          </AssociationSet>
+          <AssociationSet Name="gekmembers_gekpres" Association="Self.gekmembers_gekpres">
+            <End Role="gek" EntitySet="gek" />
+            <End Role="gekmembers" EntitySet="gekmembers" />
+          </AssociationSet>
+          <AssociationSet Name="gekmembers_geksec" Association="Self.gekmembers_geksec">
+            <End Role="gek" EntitySet="gek" />
+            <End Role="gekmembers" EntitySet="gekmembers" />
+          </AssociationSet>
+          <AssociationSet Name="gekmembers_sciadv" Association="Self.gekmembers_sciadv">
+            <End Role="sciadvisor" EntitySet="sciadvisor" />
+            <End Role="gekmembers" EntitySet="gekmembers" />
+          </AssociationSet>
+          <AssociationSet Name="gwresult_gekmembers" Association="Self.gwresult_gekmembers">
+            <End Role="gekmembers" EntitySet="gekmembers" />
+            <End Role="gwresult" EntitySet="gwresult" />
+          </AssociationSet>
+          <AssociationSet Name="userinfo_userrole" Association="Self.userinfo_userrole">
+            <End Role="userrole" EntitySet="userrole" />
+            <End Role="userinfo" EntitySet="userinfo" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="facultyModelStoreContainer" CdmEntityContainer="facultyEntities1">
+          <EntitySetMapping Name="eventlog">
+            <EntityTypeMapping TypeName="facultyModel.eventlog">
+              <MappingFragment StoreEntitySet="eventlog">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="eventdate" ColumnName="eventdate" />
+                <ScalarProperty Name="eventplace" ColumnName="eventplace" />
+                <ScalarProperty Name="responsibleprofessor" ColumnName="responsibleprofessor" />
+                <ScalarProperty Name="eventdescr" ColumnName="eventdescr" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="gek">
+            <EntityTypeMapping TypeName="facultyModel.gek">
+              <MappingFragment StoreEntitySet="gek">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="lastname" ColumnName="lastname" />
+                <ScalarProperty Name="firstname" ColumnName="firstname" />
+                <ScalarProperty Name="patronymic" ColumnName="patronymic" />
+                <ScalarProperty Name="placeofwork" ColumnName="placeofwork" />
+                <ScalarProperty Name="position" ColumnName="position" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="gekmembers">
+            <EntityTypeMapping TypeName="facultyModel.gekmembers">
+              <MappingFragment StoreEntitySet="gekmembers">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="secretary" ColumnName="secretary" />
+                <ScalarProperty Name="president" ColumnName="president" />
+                <ScalarProperty Name="membersciadv" ColumnName="membersciadv" />
+                <ScalarProperty Name="member2" ColumnName="member2" />
+                <ScalarProperty Name="member3" ColumnName="member3" />
+                <ScalarProperty Name="member4" ColumnName="member4" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="gwresult">
+            <EntityTypeMapping TypeName="facultyModel.gwresult">
+              <MappingFragment StoreEntitySet="gwresult">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="eventid" ColumnName="eventid" />
+                <ScalarProperty Name="gekid" ColumnName="gekid" />
+                <ScalarProperty Name="gw" ColumnName="gw" />
+                <ScalarProperty Name="mark" ColumnName="mark" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="purchaselist">
+            <EntityTypeMapping TypeName="facultyModel.purchaselist">
+              <MappingFragment StoreEntitySet="purchaselist">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="purchasename" ColumnName="purchasename" />
+                <ScalarProperty Name="purchasedescription" ColumnName="purchasedescription" />
+                <ScalarProperty Name="sender" ColumnName="sender" />
+                <ScalarProperty Name="quantity" ColumnName="quantity" />
+                <ScalarProperty Name="price1pc" ColumnName="price1pc" />
+                <ScalarProperty Name="overallsum" ColumnName="overallsum" />
+                <ScalarProperty Name="ifapproved" ColumnName="ifapproved" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sciadvisor">
+            <EntityTypeMapping TypeName="facultyModel.sciadvisor">
+              <MappingFragment StoreEntitySet="sciadvisor">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="professor" ColumnName="professor" />
+                <ScalarProperty Name="hoursGW" ColumnName="hoursGW" />
+                <ScalarProperty Name="hoursperGW" ColumnName="hoursperGW" />
+                <ScalarProperty Name="takenGWquantity" ColumnName="takenGWquantity" />
+                <ScalarProperty Name="freeGWquantity" ColumnName="freeGWquantity" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="userinfo">
+            <EntityTypeMapping TypeName="facultyModel.userinfo">
+              <MappingFragment StoreEntitySet="userinfo">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="lastname" ColumnName="lastname" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="patronymic" ColumnName="patronymic" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="userroleid" ColumnName="userroleid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="userrole">
+            <EntityTypeMapping TypeName="facultyModel.userrole">
+              <MappingFragment StoreEntitySet="userrole">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="rolename" ColumnName="rolename" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
