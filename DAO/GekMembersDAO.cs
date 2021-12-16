@@ -6,7 +6,7 @@ using System.Data.SqlClient;
 
 namespace TermProjectFacultyC.DAO
 {
-    public class GekMembers : DAO
+    public class GekMembersDAO : DAO
     {
         public List<gekmembers> GetAllRecords()
         {
