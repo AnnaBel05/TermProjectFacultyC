@@ -1,4 +1,10 @@
-﻿@model IEnumerable<TermProjectFacultyC.userinfo>
+﻿@model IEnumerable<TermProjectFacultyC.gek>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
@@ -9,19 +15,16 @@
             @Html.DisplayNameFor(model => model.lastname)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.username)
+            @Html.DisplayNameFor(model => model.firstname)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.patronymic)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.email)
+            @Html.DisplayNameFor(model => model.placeofwork)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.password)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.userrole.rolename)
+            @Html.DisplayNameFor(model => model.position)
         </th>
         <th></th>
     </tr>
@@ -32,19 +35,16 @@
             @Html.DisplayFor(modelItem => item.lastname)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.username)
+            @Html.DisplayFor(modelItem => item.firstname)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.patronymic)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.email)
+            @Html.DisplayFor(modelItem => item.placeofwork)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.password)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.userrole.rolename)
+            @Html.DisplayFor(modelItem => item.position)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.id }) |

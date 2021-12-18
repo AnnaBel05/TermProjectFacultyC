@@ -1,0 +1,50 @@
+﻿@model TermProjectFacultyC.gwresult
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>gwresult</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.gw)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.gw)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.mark)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.mark)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.eventlog.eventdescr)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.eventlog.eventdescr)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.gekmembers.id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.gekmembers.id)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

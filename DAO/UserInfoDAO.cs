@@ -17,6 +17,7 @@ namespace TermProjectFacultyC.DAO
                 while (reader.Read())
                 {
                     userinfo userinfoObj = new userinfo();
+                    userrole userrole = new userrole();
                     userinfoObj.id = Convert.ToInt32(reader["id"]);
                     userinfoObj.lastname = Convert.ToString(reader["lastname"]);
                     userinfoObj.username = Convert.ToString(reader["username"]);

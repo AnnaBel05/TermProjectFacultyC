@@ -84,8 +84,6 @@ namespace TermProjectFacultyC.DAO
                     " gekid = @gekid " +
                     " gw = @gw " +
                     " mark = @mark " +
-                    " freeGWquantity = @freeGWquantity" +
-                    " password = @Password" +
                     " WHERE id = @ID ", Con);
 
                 cmd.Parameters.Add(new SqlParameter("@eventid", gwresultObj.eventid));
@@ -113,8 +111,8 @@ namespace TermProjectFacultyC.DAO
             try
             {
                 SqlCommand cmd = new SqlCommand("INSERT INTO " +
-                    "gwresult(eventid, gekid, gw, freeGWquantity, password) " +
-                    "VALUES (@eventid, @gekid, @gw, @freeGWquantity, @Password )", Con);
+                    "gwresult(eventid, gekid, gw, mark) " +
+                    "VALUES (@eventid, @gekid, @gw, @mark)", Con);
                 cmd.Parameters.Add(new SqlParameter("@eventid", gwresultObj.eventid));
                 cmd.Parameters.Add(new SqlParameter("@gekid", gwresultObj.gekid));
                 cmd.Parameters.Add(new SqlParameter("@gw", gwresultObj.gw));
