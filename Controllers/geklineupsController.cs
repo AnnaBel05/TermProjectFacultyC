@@ -10,107 +10,112 @@ using TermProjectFacultyC;
 
 namespace TermProjectFacultyC.Controllers
 {
-    public class purchaselistsController : Controller
+    public class geklineupsController : Controller
     {
         private facultyEntities3 db = new facultyEntities3();
 
-        // GET: purchaselists
+        // GET: geklineups
         public ActionResult Index()
         {
-            return View(db.purchaselist.ToList());
+            var geklineup = db.geklineup.Include(g => g.eventlog);
+            return View(geklineup.ToList());
         }
 
-        // GET: purchaselists/Details/5
+        // GET: geklineups/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            purchaselist purchaselist = db.purchaselist.Find(id);
-            if (purchaselist == null)
+            geklineup geklineup = db.geklineup.Find(id);
+            if (geklineup == null)
             {
                 return HttpNotFound();
             }
-            return View(purchaselist);
+            return View(geklineup);
         }
 
-        // GET: purchaselists/Create
+        // GET: geklineups/Create
         public ActionResult Create()
         {
+            ViewBag.eventid = new SelectList(db.eventlog, "id", "eventdescr");
             return View();
         }
 
-        // POST: purchaselists/Create
+        // POST: geklineups/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "id,purchasename,purchasedescription,sender,quantity,price1pc,overallsum,ifapproved")] purchaselist purchaselist)
+        public ActionResult Create([Bind(Include = "id,groupid,eventid")] geklineup geklineup)
         {
             if (ModelState.IsValid)
             {
-                db.purchaselist.Add(purchaselist);
+                db.geklineup.Add(geklineup);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(purchaselist);
+            ViewBag.eventid = new SelectList(db.eventlog, "id", "eventdescr", geklineup.eventid);
+            return View(geklineup);
         }
 
-        // GET: purchaselists/Edit/5
+        // GET: geklineups/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            purchaselist purchaselist = db.purchaselist.Find(id);
-            if (purchaselist == null)
+            geklineup geklineup = db.geklineup.Find(id);
+            if (geklineup == null)
             {
                 return HttpNotFound();
             }
-            return View(purchaselist);
+            ViewBag.eventid = new SelectList(db.eventlog, "id", "eventdescr", geklineup.eventid);
+            return View(geklineup);
         }
 
-        // POST: purchaselists/Edit/5
+        // POST: geklineups/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "id,purchasename,purchasedescription,sender,quantity,price1pc,overallsum,ifapproved")] purchaselist purchaselist)
+        public ActionResult Edit([Bind(Include = "id,groupid,eventid")] geklineup geklineup)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(purchaselist).State = EntityState.Modified;
+                db.Entry(geklineup).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(purchaselist);
+            ViewBag.eventid = new SelectList(db.eventlog, "id", "eventdescr", geklineup.eventid);
+            return View(geklineup);
         }
 
-        // GET: purchaselists/Delete/5
+        // GET: geklineups/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            purchaselist purchaselist = db.purchaselist.Find(id);
-            if (purchaselist == null)
+            geklineup geklineup = db.geklineup.Find(id);
+            if (geklineup == null)
             {
                 return HttpNotFound();
             }
-            return View(purchaselist);
+            return View(geklineup);
         }
 
-        // POST: purchaselists/Delete/5
+        // POST: geklineups/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            purchaselist purchaselist = db.purchaselist.Find(id);
-            db.purchaselist.Remove(purchaselist);
+            geklineup geklineup = db.geklineup.Find(id);
+            db.geklineup.Remove(geklineup);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

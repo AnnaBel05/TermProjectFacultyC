@@ -10,18 +10,18 @@ using TermProjectFacultyC;
 
 namespace TermProjectFacultyC.Controllers
 {
-    public class gekmembers1Controller : Controller
+    public class gekmembersController : Controller
     {
-        private facultyEntities1 db = new facultyEntities1();
+        private facultyEntities3 db = new facultyEntities3();
 
-        // GET: gekmembers1
+        // GET: gekmembers
         public ActionResult Index()
         {
-            var gekmembers = db.gekmembers.Include(g => g.gek).Include(g => g.gek1).Include(g => g.gek2).Include(g => g.gek3).Include(g => g.gek4).Include(g => g.sciadvisor);
+            var gekmembers = db.gekmembers.Include(g => g.gek).Include(g => g.geklineup);
             return View(gekmembers.ToList());
         }
 
-        // GET: gekmembers1/Details/5
+        // GET: gekmembers/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -36,24 +36,20 @@ namespace TermProjectFacultyC.Controllers
             return View(gekmembers);
         }
 
-        // GET: gekmembers1/Create
+        // GET: gekmembers/Create
         public ActionResult Create()
         {
-            ViewBag.member2 = new SelectList(db.gek, "id", "lastname");
-            ViewBag.member3 = new SelectList(db.gek, "id", "lastname");
-            ViewBag.member4 = new SelectList(db.gek, "id", "lastname");
-            ViewBag.president = new SelectList(db.gek, "id", "lastname");
-            ViewBag.secretary = new SelectList(db.gek, "id", "lastname");
-            ViewBag.membersciadv = new SelectList(db.sciadvisor, "id", "id");
+            ViewBag.memberid = new SelectList(db.gek, "id", "lastname");
+            ViewBag.gekid = new SelectList(db.geklineup, "id", "id");
             return View();
         }
 
-        // POST: gekmembers1/Create
+        // POST: gekmembers/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "id,secretary,president,membersciadv,member2,member3,member4")] gekmembers gekmembers)
+        public ActionResult Create([Bind(Include = "id,memberid,gekposition,gekid")] gekmembers gekmembers)
         {
             if (ModelState.IsValid)
             {
@@ -62,16 +58,12 @@ namespace TermProjectFacultyC.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.member2 = new SelectList(db.gek, "id", "lastname", gekmembers.member2);
-            ViewBag.member3 = new SelectList(db.gek, "id", "lastname", gekmembers.member3);
-            ViewBag.member4 = new SelectList(db.gek, "id", "lastname", gekmembers.member4);
-            ViewBag.president = new SelectList(db.gek, "id", "lastname", gekmembers.president);
-            ViewBag.secretary = new SelectList(db.gek, "id", "lastname", gekmembers.secretary);
-            ViewBag.membersciadv = new SelectList(db.sciadvisor, "id", "id", gekmembers.membersciadv);
+            ViewBag.memberid = new SelectList(db.gek, "id", "lastname", gekmembers.memberid);
+            ViewBag.gekid = new SelectList(db.geklineup, "id", "id", gekmembers.gekid);
             return View(gekmembers);
         }
 
-        // GET: gekmembers1/Edit/5
+        // GET: gekmembers/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -83,21 +75,17 @@ namespace TermProjectFacultyC.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.member2 = new SelectList(db.gek, "id", "lastname", gekmembers.member2);
-            ViewBag.member3 = new SelectList(db.gek, "id", "lastname", gekmembers.member3);
-            ViewBag.member4 = new SelectList(db.gek, "id", "lastname", gekmembers.member4);
-            ViewBag.president = new SelectList(db.gek, "id", "lastname", gekmembers.president);
-            ViewBag.secretary = new SelectList(db.gek, "id", "lastname", gekmembers.secretary);
-            ViewBag.membersciadv = new SelectList(db.sciadvisor, "id", "id", gekmembers.membersciadv);
+            ViewBag.memberid = new SelectList(db.gek, "id", "lastname", gekmembers.memberid);
+            ViewBag.gekid = new SelectList(db.geklineup, "id", "id", gekmembers.gekid);
             return View(gekmembers);
         }
 
-        // POST: gekmembers1/Edit/5
+        // POST: gekmembers/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "id,secretary,president,membersciadv,member2,member3,member4")] gekmembers gekmembers)
+        public ActionResult Edit([Bind(Include = "id,memberid,gekposition,gekid")] gekmembers gekmembers)
         {
             if (ModelState.IsValid)
             {
@@ -105,16 +93,12 @@ namespace TermProjectFacultyC.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.member2 = new SelectList(db.gek, "id", "lastname", gekmembers.member2);
-            ViewBag.member3 = new SelectList(db.gek, "id", "lastname", gekmembers.member3);
-            ViewBag.member4 = new SelectList(db.gek, "id", "lastname", gekmembers.member4);
-            ViewBag.president = new SelectList(db.gek, "id", "lastname", gekmembers.president);
-            ViewBag.secretary = new SelectList(db.gek, "id", "lastname", gekmembers.secretary);
-            ViewBag.membersciadv = new SelectList(db.sciadvisor, "id", "id", gekmembers.membersciadv);
+            ViewBag.memberid = new SelectList(db.gek, "id", "lastname", gekmembers.memberid);
+            ViewBag.gekid = new SelectList(db.geklineup, "id", "id", gekmembers.gekid);
             return View(gekmembers);
         }
 
-        // GET: gekmembers1/Delete/5
+        // GET: gekmembers/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -129,7 +113,7 @@ namespace TermProjectFacultyC.Controllers
             return View(gekmembers);
         }
 
-        // POST: gekmembers1/Delete/5
+        // POST: gekmembers/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)

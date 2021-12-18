@@ -128,37 +128,24 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Controllers\ControllersUnused\EventLogController.cs" />
     <Compile Include="Controllers\eventlogsController.cs" />
-    <Compile Include="Controllers\ControllersUnused\GekController.cs" />
-    <Compile Include="Controllers\gekmembers1Controller.cs" />
-    <Compile Include="Controllers\ControllersUnused\GekMembersController.cs" />
+    <Compile Include="Controllers\geklineupsController.cs" />
+    <Compile Include="Controllers\gekmembersController.cs" />
     <Compile Include="Controllers\geksController.cs" />
-    <Compile Include="Controllers\ControllersUnused\GwResultController.cs" />
     <Compile Include="Controllers\gwresultsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
-    <Compile Include="Controllers\ControllersUnused\PurchaseListController.cs" />
     <Compile Include="Controllers\purchaselistsController.cs" />
-    <Compile Include="Controllers\ControllersUnused\SciAdvisorController.cs" />
-    <Compile Include="Controllers\ControllersUnused\UserInfoController.cs" />
-    <Compile Include="Controllers\ControllersUnused\UserRoleController.cs" />
     <Compile Include="Controllers\sciadvisorsController.cs" />
     <Compile Include="Controllers\userinfoesController.cs" />
     <Compile Include="Controllers\userrolesController.cs" />
-    <Compile Include="DAO\DAO.cs" />
-    <Compile Include="DAO\EventLogDAO.cs" />
-    <Compile Include="DAO\GekDAO.cs" />
-    <Compile Include="DAO\GekMembersDAO.cs" />
-    <Compile Include="DAO\GwResultDAO.cs" />
-    <Compile Include="DAO\PurchaseListDAO.cs" />
-    <Compile Include="DAO\SciAdvisorDAO.cs" />
-    <Compile Include="DAO\UserInfoDAO.cs" />
-    <Compile Include="DAO\UserRoleDAO.cs" />
     <Compile Include="eventlog.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="gek.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="geklineup.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="gekmembers.cs">
@@ -192,6 +179,9 @@
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="sciadvisor.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sysdiagrams.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="userinfo.cs">
@@ -232,13 +222,6 @@
       <DependentUpon>Model1.edmx</DependentUpon>
       <LastGenOutput>Model1.cs</LastGenOutput>
     </Content>
-    <EntityDeploy Include="Model1.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Model1.edmx.diagram">
-      <DependentUpon>Model1.edmx</DependentUpon>
-    </Content>
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.esm.js" />
@@ -251,6 +234,13 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
+    <EntityDeploy Include="Model1.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Model1.edmx.diagram">
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-3.6.0.intellisense.js" />
     <Content Include="Scripts\jquery-3.6.0.js" />
     <Content Include="Scripts\jquery-3.6.0.min.js" />
@@ -299,11 +289,18 @@
     <Content Include="Views\geks\Details.cshtml" />
     <Content Include="Views\geks\Edit.cshtml" />
     <Content Include="Views\geks\Index.cshtml" />
-    <Content Include="Views\gekmembers1\Create.cshtml" />
-    <Content Include="Views\gekmembers1\Delete.cshtml" />
-    <Content Include="Views\gekmembers1\Details.cshtml" />
-    <Content Include="Views\gekmembers1\Edit.cshtml" />
-    <Content Include="Views\gekmembers1\Index.cshtml" />
+    <Content Include="Views\Login\Register.cshtml" />
+    <Content Include="Views\Login\Login.cshtml" />
+    <Content Include="Views\geklineups\Create.cshtml" />
+    <Content Include="Views\geklineups\Delete.cshtml" />
+    <Content Include="Views\geklineups\Details.cshtml" />
+    <Content Include="Views\geklineups\Edit.cshtml" />
+    <Content Include="Views\geklineups\Index.cshtml" />
+    <Content Include="Views\gekmembers\Create.cshtml" />
+    <Content Include="Views\gekmembers\Delete.cshtml" />
+    <Content Include="Views\gekmembers\Details.cshtml" />
+    <Content Include="Views\gekmembers\Edit.cshtml" />
+    <Content Include="Views\gekmembers\Index.cshtml" />
     <Content Include="Views\gwresults\Create.cshtml" />
     <Content Include="Views\gwresults\Delete.cshtml" />
     <Content Include="Views\gwresults\Details.cshtml" />
@@ -332,7 +329,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Login\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.rtl.min.css.map" />

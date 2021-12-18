@@ -1,4 +1,4 @@
-﻿@model IEnumerable<TermProjectFacultyC.gwresult>
+﻿@model IEnumerable<TermProjectFacultyC.gekmembers>
 
 @{
     ViewBag.Title = "Index";
@@ -12,16 +12,13 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.gw)
+            @Html.DisplayNameFor(model => model.gekposition)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.mark)
+            @Html.DisplayNameFor(model => model.gek.lastname)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.eventlog.eventdescr)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.gekmembers.gekposition)
+            @Html.DisplayNameFor(model => model.geklineup.id)
         </th>
         <th></th>
     </tr>
@@ -29,16 +26,13 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.gw)
+            @Html.DisplayFor(modelItem => item.gekposition)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.mark)
+            @Html.DisplayFor(modelItem => item.gek.lastname)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.eventlog.eventdescr)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.gekmembers.gekposition)
+            @Html.DisplayFor(modelItem => item.geklineup.id)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.id }) |

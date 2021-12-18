@@ -12,22 +12,20 @@ namespace TermProjectFacultyC
     using System;
     using System.Collections.Generic;
     
-    public partial class gekmembers
+    public partial class geklineup
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public gekmembers()
+        public geklineup()
         {
-            this.gwresult = new HashSet<gwresult>();
+            this.gekmembers = new HashSet<gekmembers>();
         }
     
         public int id { get; set; }
-        public int memberid { get; set; }
-        public string gekposition { get; set; }
-        public int gekid { get; set; }
+        public int groupid { get; set; }
+        public int eventid { get; set; }
     
-        public virtual gek gek { get; set; }
-        public virtual geklineup geklineup { get; set; }
+        public virtual eventlog eventlog { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<gwresult> gwresult { get; set; }
+        public virtual ICollection<gekmembers> gekmembers { get; set; }
     }
 }

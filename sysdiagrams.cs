@@ -12,15 +12,12 @@ namespace TermProjectFacultyC
     using System;
     using System.Collections.Generic;
     
-    public partial class purchaselist
+    public partial class sysdiagrams
     {
-        public int id { get; set; }
-        public string purchasename { get; set; }
-        public string purchasedescription { get; set; }
-        public int sender { get; set; }
-        public int quantity { get; set; }
-        public int price1pc { get; set; }
-        public int overallsum { get; set; }
-        public bool ifapproved { get; set; }
+        public string name { get; set; }
+        public int principal_id { get; set; }
+        public int diagram_id { get; set; }
+        public Nullable<int> version { get; set; }
+        public byte[] definition { get; set; }
     }
 }

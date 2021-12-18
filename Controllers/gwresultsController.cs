@@ -12,7 +12,7 @@ namespace TermProjectFacultyC.Controllers
 {
     public class gwresultsController : Controller
     {
-        private facultyEntities1 db = new facultyEntities1();
+        private facultyEntities3 db = new facultyEntities3();
 
         // GET: gwresults
         public ActionResult Index()
@@ -40,7 +40,7 @@ namespace TermProjectFacultyC.Controllers
         public ActionResult Create()
         {
             ViewBag.eventid = new SelectList(db.eventlog, "id", "eventdescr");
-            ViewBag.gekid = new SelectList(db.gekmembers, "id", "id");
+            ViewBag.gekid = new SelectList(db.gekmembers, "id", "gekposition");
             return View();
         }
 
@@ -59,7 +59,7 @@ namespace TermProjectFacultyC.Controllers
             }
 
             ViewBag.eventid = new SelectList(db.eventlog, "id", "eventdescr", gwresult.eventid);
-            ViewBag.gekid = new SelectList(db.gekmembers, "id", "id", gwresult.gekid);
+            ViewBag.gekid = new SelectList(db.gekmembers, "id", "gekposition", gwresult.gekid);
             return View(gwresult);
         }
 
@@ -76,7 +76,7 @@ namespace TermProjectFacultyC.Controllers
                 return HttpNotFound();
             }
             ViewBag.eventid = new SelectList(db.eventlog, "id", "eventdescr", gwresult.eventid);
-            ViewBag.gekid = new SelectList(db.gekmembers, "id", "id", gwresult.gekid);
+            ViewBag.gekid = new SelectList(db.gekmembers, "id", "gekposition", gwresult.gekid);
             return View(gwresult);
         }
 
@@ -94,7 +94,7 @@ namespace TermProjectFacultyC.Controllers
                 return RedirectToAction("Index");
             }
             ViewBag.eventid = new SelectList(db.eventlog, "id", "eventdescr", gwresult.eventid);
-            ViewBag.gekid = new SelectList(db.gekmembers, "id", "id", gwresult.gekid);
+            ViewBag.gekid = new SelectList(db.gekmembers, "id", "gekposition", gwresult.gekid);
             return View(gwresult);
         }
 

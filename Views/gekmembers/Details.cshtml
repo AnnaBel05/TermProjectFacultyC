@@ -1,0 +1,42 @@
+﻿@model TermProjectFacultyC.gekmembers
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>gekmembers</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.gekposition)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.gekposition)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.gek.lastname)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.gek.lastname)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.geklineup.id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.geklineup.id)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

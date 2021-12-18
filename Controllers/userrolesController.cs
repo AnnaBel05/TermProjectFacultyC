@@ -12,7 +12,7 @@ namespace TermProjectFacultyC.Controllers
 {
     public class userrolesController : Controller
     {
-        private facultyEntities1 db = new facultyEntities1();
+        private facultyEntities3 db = new facultyEntities3();
 
         // GET: userroles
         public ActionResult Index()
