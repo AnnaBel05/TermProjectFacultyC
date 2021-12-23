@@ -10,6 +10,7 @@ using TermProjectFacultyC;
 
 namespace TermProjectFacultyC.Controllers
 {
+    [Authorize]
     public class eventlogsController : Controller
     {
         private facultyEntities3 db = new facultyEntities3();
@@ -35,6 +36,7 @@ namespace TermProjectFacultyC.Controllers
             return View(eventlog);
         }
 
+        [Authorize (Roles= "Техник")]
         // GET: eventlogs/Create
         public ActionResult Create()
         {
@@ -46,6 +48,7 @@ namespace TermProjectFacultyC.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Техник")]
         public ActionResult Create([Bind(Include = "id,eventdate,eventplace,responsibleprofessor,eventdescr")] eventlog eventlog)
         {
             if (ModelState.IsValid)
@@ -59,6 +62,7 @@ namespace TermProjectFacultyC.Controllers
         }
 
         // GET: eventlogs/Edit/5
+        [Authorize(Roles = "Техник")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -78,6 +82,7 @@ namespace TermProjectFacultyC.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Техник")]
         public ActionResult Edit([Bind(Include = "id,eventdate,eventplace,responsibleprofessor,eventdescr")] eventlog eventlog)
         {
             if (ModelState.IsValid)

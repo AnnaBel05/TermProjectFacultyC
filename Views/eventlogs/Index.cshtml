@@ -1,51 +1,65 @@
 ﻿@model IEnumerable<TermProjectFacultyC.eventlog>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Информация о защитах";
 }
 
-<h2>Index</h2>
+<h2>Информация о защитах</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Создать новый", "Создать")
 </p>
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.eventdate)
+            <div> Дата защиты </div>
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.eventplace)
+            <div> Аудитория </div>
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.responsibleprofessor)
+            <div> Ответственный преподаватель </div>
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.eventdescr)
+            <div> Описание мероприятия </div>
         </th>
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.eventdate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.eventplace)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.responsibleprofessor)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.eventdescr)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.id })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.eventdate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.eventplace)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.responsibleprofessor)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.eventdescr)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.id }) |
+                @Html.ActionLink("Details", "Details", new { id = item.id }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.id })
+            </td>
+        </tr>
+    }
 
 </table>
+
+@if (User.Identity.IsAuthenticated)
+{
+    <p>
+        <button>@Html.ActionLink("Шаги", "GradWorkTest", "Home")</button>
+    </p>
+    <p>
+        <button>@Html.ActionLink("Следующий шаг", "Index", "geklineups")</button>
+    </p>
+    <p>
+        <button>@Html.ActionLink("Предыдущий шаг", "Index", "geks")</button>
+    </p>
+}

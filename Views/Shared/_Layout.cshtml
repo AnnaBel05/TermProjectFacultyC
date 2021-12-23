@@ -17,25 +17,25 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("Кафедра", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
+                    <li>@Html.ActionLink("Главная", "Index", "Home")</li>
+                    <li>@Html.ActionLink("О нас", "About", "Home")</li>
 
                     @if (User.Identity.IsAuthenticated)
                     {
-                        <li>@Html.ActionLink("Purchase list", "Index", "purchaselists")</li>
-                        <li>@Html.ActionLink("Event log", "Index", "eventlogs")</li>
-                        <li>@Html.ActionLink("Graduation work result", "Index", "gwresults")</li>
+                        <li>@Html.ActionLink("Список закупок", "Index", "purchaselists")</li>
+                        <li>@Html.ActionLink("Информация о защите", "Index", "eventlogs")</li>
+                        <li>@Html.ActionLink("Результаты защиты", "Index", "gwresults")</li>
 
-                        <li class="right">@Html.ActionLink("Logout", "Logout", "Login")</li>
+                        <li class="right">@Html.ActionLink("Выйти", "Logout", "Login")</li>
                     }
                     else
                     {
-                        <li class="right">@Html.ActionLink("Login", "Login", "Login")</li>
-                        <li class="right">@Html.ActionLink("Register", "Register", "Login")</li>
+                        <li class="right">@Html.ActionLink("Войти", "Login", "Login")</li>
+                        <li class="right">@Html.ActionLink("Зарегистрироваться", "Register", "Login")</li>
                     }
 
                 </ul>

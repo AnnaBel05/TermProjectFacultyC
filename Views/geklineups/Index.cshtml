@@ -12,28 +12,42 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.groupid)
+            <div>ID группы</div>
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.eventlog.eventdescr)
+            <div>Описание мероприятия</div>
         </th>
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.groupid)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.eventlog.eventdescr)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.id })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.groupid)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.eventlog.eventdescr)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.id }) |
+                @Html.ActionLink("Details", "Details", new { id = item.id }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.id })
+            </td>
+        </tr>
+    }
 
 </table>
+
+@if (User.Identity.IsAuthenticated)
+{
+    <p>
+        <button>@Html.ActionLink("Шаги", "GradWorkTest", "Home")</button>
+    </p>
+    <p>
+        <button>@Html.ActionLink("Следующий шаг", "Index", "gekmembers")</button>
+    </p>
+    <p>
+        <button>@Html.ActionLink("Предыдущий шаг", "Index", "eventlogs")</button>
+    </p>
+}

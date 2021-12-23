@@ -10,6 +10,7 @@ using TermProjectFacultyC;
 
 namespace TermProjectFacultyC.Controllers
 {
+    [Authorize]
     public class userinfoesController : Controller
     {
         private facultyEntities3 db = new facultyEntities3();
@@ -127,6 +128,22 @@ namespace TermProjectFacultyC.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+
+        // GET: userinfoes/Details/5
+        // TODO: добавить просмотр стр для пользователя?
+        public ActionResult CheckInfo(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            userinfo userinfo = db.userinfo.Find(id);
+            if (userinfo == null)
+            {
+                return HttpNotFound();
+            }
+            return View(userinfo);
         }
     }
 }

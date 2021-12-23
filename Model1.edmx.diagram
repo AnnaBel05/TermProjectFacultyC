@@ -4,17 +4,17 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="85b91589587b4ddc8377f1c9cecde390" Name="Diagram1">
-        <EntityTypeShape EntityType="facultyModel.eventlog" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="facultyModel.gek" Width="1.5" PointX="3" PointY="5" IsExpanded="true" />
-        <EntityTypeShape EntityType="facultyModel.geklineup" Width="1.5" PointX="3" PointY="1.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="facultyModel.gekmembers" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="facultyModel.gwresult" Width="1.5" PointX="7.5" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="facultyModel.purchaselist" Width="1.5" PointX="0.75" PointY="8.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="facultyModel.sciadvisor" Width="1.5" PointX="2.75" PointY="8.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="facultyModel.sysdiagrams" Width="1.5" PointX="4.75" PointY="8.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="facultyModel.userinfo" Width="1.5" PointX="8" PointY="5" IsExpanded="true" />
-        <EntityTypeShape EntityType="facultyModel.userrole" Width="1.5" PointX="5.75" PointY="5.375" IsExpanded="true" />
+      <Diagram DiagramId="85b91589587b4ddc8377f1c9cecde390" Name="Diagram1" ZoomLevel="85">
+        <EntityTypeShape EntityType="facultyModel.eventlog" Width="1.5" PointX="0.5" PointY="0.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="facultyModel.gek" Width="1.5" PointX="2.125" PointY="3.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="facultyModel.geklineup" Width="1.5" PointX="2.5" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="facultyModel.gekmembers" Width="1.5" PointX="4.625" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="facultyModel.gwresult" Width="1.5" PointX="6.625" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="facultyModel.purchaselist" Width="1.5" PointX="8.75" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="facultyModel.sciadvisor" Width="1.5" PointX="10.75" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="facultyModel.sysdiagrams" Width="1.5" PointX="12.75" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="facultyModel.userinfo" Width="1.5" PointX="7" PointY="3.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="facultyModel.userrole" Width="1.5" PointX="4.125" PointY="3.875" IsExpanded="true" />
         <AssociationConnector Association="facultyModel.geklineup_eventid" ManuallyRouted="false" />
         <AssociationConnector Association="facultyModel.gwresult_eventlog" ManuallyRouted="false" />
         <AssociationConnector Association="facultyModel.gekmembers_gekmemberid" ManuallyRouted="false" />

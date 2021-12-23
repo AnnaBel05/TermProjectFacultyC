@@ -1,0 +1,23 @@
+﻿@{
+    ViewBag.Title = "Составление плана защиты";
+}
+
+<h2>Кафедра</h2>
+@if (User.Identity.IsAuthenticated)
+{
+    <p>Начинаем составление плана защиты ВКР, @User.Identity.Name </p>
+    <p style="display:inline">Шаг 1. Заполните информацию о членах ГЭК. Для этого </p> @Html.ActionLink(" нажмите сюда!", "Index", "geks")
+    <p></p>
+    <p style="display:inline">Шаг 2. Заполните информацию о проведении защиты. Для этого </p> @Html.ActionLink(" нажмите сюда!", "Index", "eventlogs")
+    <p></p>
+    <p style="display:inline">Шаг 3. Заполните информацию о ГЭКе для данной защиты. Для этого </p> @Html.ActionLink(" нажмите сюда!", "Index", "geklineups")
+    <p></p>
+    <p style="display:inline">Шаг 4. Заполните информацию о членах данного ГЭК. Для этого </p> @Html.ActionLink(" нажмите сюда!", "Index", "gekmembers")
+    <p></p>
+    //Добавить финальную вкладку где собрана общая информация?
+
+}
+else
+{
+    <p>Необходима авторизация!</p>
+}

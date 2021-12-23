@@ -326,6 +326,8 @@
     <Content Include="Views\userroles\Details.cshtml" />
     <Content Include="Views\userroles\Edit.cshtml" />
     <Content Include="Views\userroles\Index.cshtml" />
+    <Content Include="Views\userinfoes\CheckInfo.cshtml" />
+    <Content Include="Views\Home\GradWorkTest.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

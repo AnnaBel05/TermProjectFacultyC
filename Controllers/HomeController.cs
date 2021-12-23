@@ -28,5 +28,11 @@ namespace TermProjectFacultyC.Controllers
 
             return View();
         }
+
+        [Authorize]
+        public ActionResult GradWorkTest()
+        {
+            return View();
+        }
     }
 }

@@ -23,10 +23,5 @@ namespace TermProjectFacultyC
         public int userroleid { get; set; }
     
         public virtual userrole userrole { get; set; }
-
-        public userinfo()
-        {
-            userroleid = 1;
-        }
     }
 }

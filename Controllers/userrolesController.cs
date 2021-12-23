@@ -10,6 +10,7 @@ using TermProjectFacultyC;
 
 namespace TermProjectFacultyC.Controllers
 {
+    [Authorize(Roles = "Суперюзер")]
     public class userrolesController : Controller
     {
         private facultyEntities3 db = new facultyEntities3();

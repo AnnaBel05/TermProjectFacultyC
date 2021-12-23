@@ -10,6 +10,7 @@ using TermProjectFacultyC;
 
 namespace TermProjectFacultyC.Controllers
 {
+    [Authorize]
     public class gwresultsController : Controller
     {
         private facultyEntities3 db = new facultyEntities3();

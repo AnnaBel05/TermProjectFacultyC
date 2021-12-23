@@ -12,34 +12,48 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.gekposition)
+            <div>Должность</div>
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.gek.lastname)
+            <div>Фамилия</div>
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.geklineup.id)
+            <div>ID ГЭКа</div>
         </th>
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.gekposition)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.gek.lastname)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.geklineup.id)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.id })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.gekposition)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.gek.lastname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.geklineup.id)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.id }) |
+                @Html.ActionLink("Details", "Details", new { id = item.id }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.id })
+            </td>
+        </tr>
+    }
 
 </table>
+
+@if (User.Identity.IsAuthenticated)
+{
+    <p>
+        <button>@Html.ActionLink("Шаги", "GradWorkTest", "Home")</button>
+    </p>
+    <p>
+        <button>@Html.ActionLink("Предыдущий шаг", "Index", "geklineups")</button>
+    </p>
+    <p>
+        <button>@Html.ActionLink("Домой", "Index", "Home")</button>
+    </p>
+}
