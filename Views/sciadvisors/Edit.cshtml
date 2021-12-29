@@ -18,7 +18,7 @@
         @Html.HiddenFor(model => model.id)
 
         <div class="form-group">
-            @Html.LabelFor(model => model.professor, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="control-label col-md-2"> Преподаватель </div>
             <div class="col-md-10">
                 @Html.EditorFor(model => model.professor, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.professor, "", new { @class = "text-danger" })
@@ -26,7 +26,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.hoursGW, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="control-label col-md-2"> Часы на ВКР </div>
             <div class="col-md-10">
                 @Html.EditorFor(model => model.hoursGW, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.hoursGW, "", new { @class = "text-danger" })
@@ -34,7 +34,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.hoursperGW, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="control-label col-md-2"> Часов на одну ВКР </div>
             <div class="col-md-10">
                 @Html.EditorFor(model => model.hoursperGW, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.hoursperGW, "", new { @class = "text-danger" })
@@ -42,7 +42,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.takenGWquantity, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="control-label col-md-2"> Занятые часы </div>
             <div class="col-md-10">
                 @Html.EditorFor(model => model.takenGWquantity, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.takenGWquantity, "", new { @class = "text-danger" })
@@ -50,7 +50,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.freeGWquantity, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="control-label col-md-2"> Свободные часы </div>
             <div class="col-md-10">
                 @Html.EditorFor(model => model.freeGWquantity, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.freeGWquantity, "", new { @class = "text-danger" })

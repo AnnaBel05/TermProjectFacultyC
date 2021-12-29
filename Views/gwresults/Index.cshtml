@@ -1,10 +1,10 @@
 ﻿@model IEnumerable<TermProjectFacultyC.gwresult>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Результаты защиты ВКР";
 }
 
-<h2>Index</h2>
+<h2>Результаты защиты ВКР</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
@@ -12,16 +12,16 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.gw)
+            <div>Код ВКР</div>
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.mark)
+            <div>Оценка</div>
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.eventlog.eventdescr)
+            <div>Описание мероприятия</div>
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.gekmembers.gekposition)
+            <div>Ответственный</div>
         </th>
         <th></th>
     </tr>

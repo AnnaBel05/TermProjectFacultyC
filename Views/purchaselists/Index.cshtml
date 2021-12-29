@@ -1,10 +1,10 @@
 ﻿@model IEnumerable<TermProjectFacultyC.purchaselist>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Список закупок";
 }
 
-<h2>Index</h2>
+<h2>Список закупок</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
@@ -12,25 +12,25 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.purchasename)
+            <div> Наименование </div>
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.purchasedescription)
+            <div> Описание </div>
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.sender)
+            <div> Кафедра-отправитель </div>
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.quantity)
+            <div> Количество </div>
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.price1pc)
+            <div> Цена за 1 шт, руб. </div>
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.overallsum)
+            <div> Общая стоимость </div>
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.ifapproved)
+            <div> Одобрить </div>
         </th>
         <th></th>
     </tr>
